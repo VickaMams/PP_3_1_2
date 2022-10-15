@@ -8,28 +8,32 @@
 <form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">
     <label for="id">ID</label>
     <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
-    <br/>
+    <br/>    <br/>
     <label for="name">name</label>
     <input type="text" th:field="*{name}" id="name" placeholder="name">
-
+    <br/>   <br/>
 
 
     <label for="email">email</label>
     <input type="text" th:field="*{username}" id="email" placeholder="email">
+    <br/>   <br/>
 
-    </div>
+<!--    <label for="password">password</label>-->
+<!--    <input type="text" th:field="*{password}" id="password" placeholder="password">-->
+<!--    <br/>   <br/>-->
     <div class="mb-3">
         <label for="password" class="form-label mb-0">Password</label>
         <input type="password" class="form-control" id="password" th:field="*{password}"/>
     </div>
-    <label for="role">Roles:</label>
+
+    <label for="role">roles:</label>
     <select multiple="multiple" th:field="*{roles}"
             type="text" id="role">
         <option th:each="role : ${roles}" th:value="${role.getId()}" th:text="${
         role.getAuthority().replaceFirst('ROLE_', '')}"></option>
 
     </select>
-
+    <br/>   <br/>
     <input type="submit" value="Update">
 
 </form>

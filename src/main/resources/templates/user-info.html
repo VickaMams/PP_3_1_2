@@ -10,22 +10,16 @@
 
     <form:hidden path="id"/>
 
-    <label for="name">Enter name</label>
-    <input type="text" th:field="*{name}" id="name">
+    <label >Your name: </label>
+    <a  th:text="*{name}" ></a>
     <br><br>
-    <label for="email">Enter email(login): </label>
-    <input type="text" th:field="*{username}" id="email"/>
+    <label> Your email(login): </label>
+    <a th:text="*{username}" ></a>
     <br><br>
-    <label for="password">Password</label>
-    <input type="text" th:field="*{password}" id="password"/>
-    <br><br>
-    <label for="role">Roles:</label>
-    <select multiple="multiple" th:field="*{roles}"
-            type="text" id="role">
-        <option th:each="role : ${roles}" th:value="${role.getId()}"
-                th:text="${role.getAuthority().replaceFirst('ROLE_', '')}"></option>
 
-    </select>
+    <label >Your roles:</label>
+    <a th:each="role : ${user.getRoles()}" th:text="${role.getAuthority().replaceFirst('ROLE_', '')} + ' '" ></a>
+    <br><br>
 
     <br><br>
     <div>
