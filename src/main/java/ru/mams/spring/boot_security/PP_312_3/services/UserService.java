@@ -11,6 +11,7 @@ public interface UserService {
     public List<User> findAll();
 
     public User saveUser(User user);
+    public User updateUser(User user);
     User getUser(Long id);
     public User findById(Long id);
 

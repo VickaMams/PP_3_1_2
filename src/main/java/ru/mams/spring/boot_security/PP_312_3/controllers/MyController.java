@@ -88,9 +88,9 @@ public class MyController {
     }
 
     @PostMapping("/admin/user-update")
-    public String updateUser(User user, BindingResult bindingResult){
-        if (bindingResult.hasErrors()) { return "/user-update"; }
-        else userService.saveUser(user);
+    public String updateUser(User user){
+
+         userService.updateUser(user);
         return "redirect:/admin";
     }
 
