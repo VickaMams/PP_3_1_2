@@ -5,26 +5,37 @@
     <title>User update</title>
 </head>
 <body>
-<form action="#" th:action="@{/admin/user-update}" th:object="${user}" method="post">
-    <label for="id">ID</label>
-    <input readonly type="number" th:field="*{id}" id="id" placeholder="ID">
-    <br/>    <br/>
-    <label for="name">name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="name">
-    <br/>   <br/>
+<form  th:action="@{/admin/user-update}" th:object="${user}" method="post">
+    <strong><label for="eId">ID </label></strong>
+    <input type="number" class="form-control"
+           th:value="${user.id}" id="eId" name="id"
+           readonly>
+    <br/>
+
+    <strong><label
+            for="name">Name</label></strong>
+    <input type="text" class="form-control"
+           th:value="${user.name}" id="name"
+           name="name"
+           required minlength="1" maxlength="50">
+    <br/>
 
 
-    <label for="email">email</label>
-    <input type="text" th:field="*{username}" id="email" placeholder="email">
-    <br/>   <br/>
 
-<!--    <label for="password">password</label>-->
-<!--    <input type="text" th:field="*{password}" id="password" placeholder="password">-->
-<!--    <br/>   <br/>-->
-    <div class="mb-3">
-        <label for="password" class="form-label mb-0">Password</label>
-        <input type="password" class="form-control" id="password" th:value="${user.password}" th:field="*{password}"/>
-    </div>
+    <strong><label
+            for="email">Email</label></strong>
+    <input type="text" class="form-control"
+           th:value="${user.username}" id="email"
+           name="username"
+           required minlength="1" maxlength="50">
+    <br/>
+
+    <strong><label
+            for="ePassword">Password</label></strong>
+    <input type="password" class="form-control"
+           th:value="${user.password}" id="ePassword"
+           name="password" data-toggle="password">
+    <br/>
 
     <label for="role">roles:</label>
     <select multiple="multiple" th:field="*{roles}"

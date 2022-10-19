@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         }else {
             user.setPassword(Objects.requireNonNull(userRepository.findById(user.getId()).orElse(null)).getPassword());
         }
-        return userRepository.saveAndFlush(user);
+        return userRepository.save(user);
     }
 
     @Override
